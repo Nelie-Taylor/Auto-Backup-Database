@@ -1,0 +1,31 @@
+{
+  "name": "auto-backup-database",
+  "version": "1.0.0",
+  "description": "Make by Nelie",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nelie-Taylor/Auto-Backup-Database.git"
+  },
+  "keywords": [
+    "auto",
+    "backup",
+    "database"
+  ],
+  "author": "Nelie Taylor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nelie-Taylor/Auto-Backup-Database/issues"
+  },
+  "homepage": "https://github.com/Nelie-Taylor/Auto-Backup-Database#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "liquidjs": "^9.16.1",
+    "sequelize": "^6.3.5",
+    "sqlite3": "^5.0.0"
+  }
+}

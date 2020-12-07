@@ -1,0 +1,339 @@
+{% layout "layout.liquid" %}
+{% block content %}
+    <div class="row">
+        <div class="col-4">
+            <h1>Create task backup</h1>
+            <form method="post" action="/create-backup">
+                <div class="form-group">
+                    <label for="cb_name">Task name</label>
+                    <input type="text" class="form-control" id="cb_name" placeholder="Task name" name="cb_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="cb_connect_string">Connect string</label>
+                    <input type="text" class="form-control" id="cb_connect_string" placeholder="Connect string" name="cb_connect_string" required>
+                </div>
+                <div class="form-group">
+                    <label for="cb_type">Type Database</label>
+                    <select class="form-control" id="cb_type" name="cb_type" required>
+                        <option value="mongodb">MongoDB</option>
+                        <option value="mysql">MySQL</option>
+                    </select>
+                </div>
+                <br />
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create cron</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-8">
+            <h1>Backup cron</h1>
+            <div class="row">
+                <div class="col">
+                    <h5>Minutes</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_minute" value="*" checked>
+                        <label class="form-check-label" for="cron_minute_every_minute">
+                            Every Minute
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_minutes" value="*/2">
+                        <label class="form-check-label" for="cron_minute_every_minutes">
+                            Even Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_odd_minutes" value="1-59/2">
+                        <label class="form-check-label" for="cron_minute_odd_minutes">
+                            Odd Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_5_minutes" value="*/5">
+                        <label class="form-check-label" for="cron_minute_every_5_minutes">
+                            Every 5 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_15_minutes" value="*/15">
+                        <label class="form-check-label" for="cron_minute_every_15_minutes">
+                            Every 15 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_30_minutes" value="*/30">
+                        <label class="form-check-label" for="cron_minute_every_30_minutes">
+                            Every 30 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_option_minutes" value="option">
+                        <label class="form-check-label" for="cron_minute_option_minutes">
+                            Option minutes
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <select multiple class="form-control" id="cron_minute_option">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <h5>Minutes</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_minute" value="*" checked>
+                        <label class="form-check-label" for="cron_minute_every_minute">
+                            Every Minute
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_minutes" value="*/2">
+                        <label class="form-check-label" for="cron_minute_every_minutes">
+                            Even Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_odd_minutes" value="1-59/2">
+                        <label class="form-check-label" for="cron_minute_odd_minutes">
+                            Odd Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_5_minutes" value="*/5">
+                        <label class="form-check-label" for="cron_minute_every_5_minutes">
+                            Every 5 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_15_minutes" value="*/15">
+                        <label class="form-check-label" for="cron_minute_every_15_minutes">
+                            Every 15 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_30_minutes" value="*/30">
+                        <label class="form-check-label" for="cron_minute_every_30_minutes">
+                            Every 30 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_option_minutes" value="option">
+                        <label class="form-check-label" for="cron_minute_option_minutes">
+                            Option minutes
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <select multiple class="form-control" id="cron_minute_option">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_minute" value="*" checked>
+                        <label class="form-check-label" for="cron_minute_every_minute">
+                            Every Minute
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_minutes" value="*/2">
+                        <label class="form-check-label" for="cron_minute_every_minutes">
+                            Even Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_odd_minutes" value="1-59/2">
+                        <label class="form-check-label" for="cron_minute_odd_minutes">
+                            Odd Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_5_minutes" value="*/5">
+                        <label class="form-check-label" for="cron_minute_every_5_minutes">
+                            Every 5 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_15_minutes" value="*/15">
+                        <label class="form-check-label" for="cron_minute_every_15_minutes">
+                            Every 15 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_30_minutes" value="*/30">
+                        <label class="form-check-label" for="cron_minute_every_30_minutes">
+                            Every 30 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_option_minutes" value="option">
+                        <label class="form-check-label" for="cron_minute_option_minutes">
+                            Option minutes
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <select multiple class="form-control" id="cron_minute_option">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_minute" value="*" checked>
+                        <label class="form-check-label" for="cron_minute_every_minute">
+                            Every Minute
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_minutes" value="*/2">
+                        <label class="form-check-label" for="cron_minute_every_minutes">
+                            Even Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_odd_minutes" value="1-59/2">
+                        <label class="form-check-label" for="cron_minute_odd_minutes">
+                            Odd Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_5_minutes" value="*/5">
+                        <label class="form-check-label" for="cron_minute_every_5_minutes">
+                            Every 5 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_15_minutes" value="*/15">
+                        <label class="form-check-label" for="cron_minute_every_15_minutes">
+                            Every 15 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_30_minutes" value="*/30">
+                        <label class="form-check-label" for="cron_minute_every_30_minutes">
+                            Every 30 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_option_minutes" value="option">
+                        <label class="form-check-label" for="cron_minute_option_minutes">
+                            Option minutes
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <select multiple class="form-control" id="cron_minute_option">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_minute" value="*" checked>
+                        <label class="form-check-label" for="cron_minute_every_minute">
+                            Every Minute
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_minutes" value="*/2">
+                        <label class="form-check-label" for="cron_minute_every_minutes">
+                            Even Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_odd_minutes" value="1-59/2">
+                        <label class="form-check-label" for="cron_minute_odd_minutes">
+                            Odd Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_5_minutes" value="*/5">
+                        <label class="form-check-label" for="cron_minute_every_5_minutes">
+                            Every 5 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_15_minutes" value="*/15">
+                        <label class="form-check-label" for="cron_minute_every_15_minutes">
+                            Every 15 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_every_30_minutes" value="*/30">
+                        <label class="form-check-label" for="cron_minute_every_30_minutes">
+                            Every 30 Minutes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cron_minute" id="cron_minute_option_minutes" value="option">
+                        <label class="form-check-label" for="cron_minute_option_minutes">
+                            Option minutes
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <select multiple class="form-control" id="cron_minute_option">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-12">
+            <h1>History backup</h1>
+        </div>
+        <div class="col-12">
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
